@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;800&display=swap");
+
+:root {
+  /* https://coolors.co/8d5a97-907f9f-a4a5ae-b0c7bd-b8ebd0 */
+  --purple-900: #3b2640;
+  --purple-800: #907f9fff;
+  --purple-500: #a4a5aeff;
+  --opal: #b0c7bdff;
+  --blue-100: #BEE3F9;
+
+  --background: var(--opal);
+  --text: #171717;
+  --header: var(--blue-100);
+  --title: var(--purple-900);
+  --button: var(--title);
+  --button-font: white;
+  --button-primary: var(--purple-900);
+  --button-text-primary: white;
+  --button-default: var(--purple-500);
+  --card-background: white;
+  --card-title: var(--purple-900);
+  --card-drop-shadow: var(--purple-800);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 24px;
+  line-height: 1.6;
+}
+
+body {
+  background: var(--background);
+  font-family: Inter, sans-serif;
+}
+
+h1 {
+  color: var(--title);
+}
+
+header {
+  background: var(--header);
+}
+
+header .container {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  /* outline: 1px solid gray; */
+}
+
+.main {
+  min-height: 10rem;
+}
+
+.hide {
+  display: none;
+}
+
+.button {
+  background-color: var(--button);
+  color: var(--button-font);
+  font-size: 1rem;
+  padding: 0.875rem;
+  border: 0;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  filter: brightness(0.85);
+}
+
+.books {
+  display: flex;
+  flex-flow: wrap;
+  font-size: 1.2rem;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.1rem var(--card-drop-shadow));
+}
+
+.book-card :first-child {
+  color: var(--card-title);
+  font-weight: bold;
+}
+
+.book-card .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 0.5rem;
+}
+
+.book-card .controls button {
+  color: white;
+  font-size: 0.5rem;
+  padding: 0.5rem;
+}
+
+#book-form {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+#book-form div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem;
+}
+
+#book-form input {
+  border-radius: 1px;
+  border: 2px gray;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+
+#book-form .form-read {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 6rem;
+}
+
+#book-form .form-read input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#book-form .form-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+button.primary {
+  background-color: var(--button-primary);
+  color: var(--button-text-primary);
+  padding: 0.75rem;
+  border-radius: 1rem;
+  border: 0;
+  cursor: pointer;
+}
+
+button.default {
+  color: black !important;
+  background-color: var(--button-default);
+}
