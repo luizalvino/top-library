@@ -1,7 +1,4 @@
-let myLibrary = [
-  new Book("Harry Poter", "J. K. Rowling", 200, false),
-  new Book("The Lord of the Rings", "J. R. R. Tolkien", 500, true),
-];
+let myLibrary = createLibrary();
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -10,17 +7,29 @@ function Book(title, author, pages, read) {
   this.read = Boolean(read);
 }
 
+function createLibrary() {
+  const libraryFromLocalStorage = localStorage.getItem("myLibrary");
+  return JSON.parse(libraryFromLocalStorage) || [];
+}
+
+function syncLibraryWithLocalStorage() {
+  localStorage.setItem("myLibrary", JSON.stringify(myLibrary));
+}
+
 function addBookToLibrary(book) {
   myLibrary.push(book);
+  syncLibraryWithLocalStorage();
 }
 
 function removeBookFromLibrary(title) {
   myLibrary = myLibrary.filter((b) => b.title !== title);
+  syncLibraryWithLocalStorage();
 }
 
 function toggleRead(title) {
   const bookToUpdate = myLibrary.find((b) => b.title === title);
   bookToUpdate.read = !bookToUpdate.read;
+  syncLibraryWithLocalStorage();
 }
 
 function createBookCard(book) {
@@ -67,7 +76,7 @@ function showBookForm() {
     const newBookForm = document.querySelector("#book-form");
     const data = Object.fromEntries(new FormData(newBookForm).entries());
 
-    myLibrary.push(new Book(data.title, data.author, data.pages, data.read));
+    addBookToLibrary(new Book(data.title, data.author, data.pages, data.read));
 
     showLibrary();
   });
