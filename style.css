@@ -105,6 +105,10 @@ header .container {
   font-weight: bold;
 }
 
+.book-card span {
+  font-weight: 100;
+}
+
 .book-card .controls {
   display: flex;
   flex-direction: row;
